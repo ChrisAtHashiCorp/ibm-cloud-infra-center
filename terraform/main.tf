@@ -17,7 +17,7 @@ resource "random_id" "instance_suffix" {
   byte_length = 3
   keepers = {
     # Any changes to these values will generate a new ID
-    image_id  = 
+    image_id  = data.hcp_packer_artifact.ddr-rhel.external_identifier
     flavor_id = data.openstack_compute_flavor_v2.size.id
     network   = data.openstack_networking_network_v2.network.name
     # Add other fields that should trigger a new instance when changed
